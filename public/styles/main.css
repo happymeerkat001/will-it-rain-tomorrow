@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  background: linear-gradient(160deg, #dbeafe, #f1f5f9);
+}
+
+.card {
+  width: 100%;
+  max-width: 560px;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+h1 {
+  margin-top: 0;
+  text-align: center;
+}
+
+h1 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.search {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.search input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.search button {
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background: #2563eb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search button:hover {
+  background: #1d4ed8;
+}
+
+.error {
+  padding: 0.75rem;
+  color: #991b1b;
+  background: #fee2e2;
+  border-radius: 8px;
+}
+
+.verdict {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.verdict.rain {
+  background: #dbeafe;
+}
+
+.verdict.dry {
+  background: #fef9c3;
+}
+
+.verdict p {
+  margin: 0.25rem 0;
+}
+
+.place {
+  color: #475569;
+}
+
+.answer {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.slots {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slots li {
+  display: grid;
+  grid-template-columns: 3.5rem 2.5rem 3.5rem 1fr 3rem;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.slots li.rainy {
+  background: #eff6ff;
+}
+
+.slots img {
+  width: 40px;
+  height: 40px;
+}
+
+.desc {
+  text-transform: capitalize;
+}
+
+.pop {
+  text-align: right;
+  color: #2563eb;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+footer {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+footer a {
+  color: inherit;
+}

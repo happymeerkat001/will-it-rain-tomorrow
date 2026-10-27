@@ -1,0 +1,51 @@
+<%- include("partials/header.ejs") %>
+
+<!-- method="GET" puts the city in the URL, so /weather?city=London can be bookmarked or shared -->
+<form action="/weather" method="GET" class="search">
+  <input
+    type="text"
+    name="city"
+    placeholder="Enter a city, e.g. London or Austin, US"
+    value="<%= locals.city || '' %>"
+    required
+  />
+  <button type="submit">Check</button>
+</form>
+
+<% if (locals.error) { %>
+  <p class="error"><%= error %></p>
+<% } %>
+
+<% if (locals.placeName) { %>
+  <section class="verdict <%= willRain ? 'rain' : 'dry' %>">
+    <p class="place"><%= placeName %> · <%= tomorrow %></p>
+    <% if (willRain) { %>
+      <p class="answer">☔ Yes, bring an umbrella.</p>
+    <% } else { %>
+      <p class="answer">☀️ No rain expected.</p>
+    <% } %>
+    <p class="chance">Highest chance of rain: <%= highestChance %>%</p>
+  </section>
+
+  <% if (slots.length === 0) { %>
+    <p class="error">The forecast doesn't cover tomorrow yet. Try again in a little while.</p>
+  <% } else { %>
+    <ul class="slots">
+      <% slots.forEach((slot) => { %>
+        <li class="<%= slot.isRainy ? 'rainy' : '' %>">
+          <span class="time"><%= slot.time %></span>
+          <img
+            src="https://openweathermap.org/img/wn/<%= slot.icon %>.png"
+            alt="<%= slot.description %>"
+          />
+          <span class="temp"><%= slot.temp %>°C</span>
+          <span class="desc"><%= slot.description %></span>
+          <span class="pop"><%= slot.chance %>%</span>
+        </li>
+      <% }) %>
+    </ul>
+    <p class="note">Times are local to <%= placeName %>.</p>
+  <% } %>
+<% } %>
+
+<%- include("partials/footer.ejs") %>
